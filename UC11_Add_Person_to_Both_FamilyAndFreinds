@@ -1,0 +1,20 @@
+<mysql> INSERT INTO addressbook_details ( firstName, lastName, address, city,state, zip, phone_number, email_address,type) VALUES
+    ->     -> ('Ankita', 'Singh', 'Gomtinagar', 'Kanpur', 'UttarPradesh', '226010', '05566667','surabh@gmail.com','friends');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> ('Ankita', 'Singh', 'Gomtinagar', 'Kanpur', 'UttarPradesh', '226010', '055666' at line 2
+mysql> INSERT INTO addressbook_details ( firstName, lastName, address, city,state, zip, phone_number, email_address,type) VALUES
+    ->      ('Santhosh', 'Singh', 'Gomtinagar', 'Kanpur', 'UttarPradesh', '226010', '05566667','surabh@gmail.com','friends'),
+    ->            ('Santhosh', 'Singh', 'Gomtinagar', 'Kanpur', 'UttarPradesh', '226010', '05566667','surabh@gmail.com','family');
+Query OK, 2 rows affected (0.07 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql>  select * from addressbook_details;
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+| firstName | lastName | address    | city    | state        | zip    | phone_number | email_address    | type    |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com | family  |
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com | family  |
+| Meera     | Singh    | Gomtinagar | Agra    | UttarPradesh | 226010 | 05566667     | surabh@gmail.com | friends |
+| Ankita    | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 226010 | 05566667     | surabh@gmail.com | friends |
+| Santhosh  | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 226010 | 05566667     | surabh@gmail.com | friends |
+| Santhosh  | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 226010 | 05566667     | surabh@gmail.com | family  |
++-----------+----------+---
