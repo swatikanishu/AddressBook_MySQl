@@ -1,0 +1,40 @@
+mysql> alter table addressbook_details add column type varchar(50);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from addressbook_details;
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+------+
+| firstName | lastName | address    | city    | state        | zip    | phone_number | email_address    | type |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+------+
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com | NULL |
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com | NULL |
+| Meera     | Singh    | Gomtinagar | Agra    | UttarPradesh | 226010 | 05566667     | surabh@gmail.com | NULL |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+------+
+3 rows in set (0.00 sec)
+
+mysql> update addressbook_details set type='family' where firstName='Saurabh';
+Query OK, 2 rows affected (0.07 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update addressbook_details set type='friends' where firstName='Meera';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from addressbook_details;
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+| firstName | lastName | address    | city    | state        | zip    | phone_number | email_address    | type    |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com | family  |
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com | family  |
+| Meera     | Singh    | Gomtinagar | Agra    | UttarPradesh | 226010 | 05566667     | surabh@gmail.com | friends |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO addressbook_details ( firstName, lastName, address, city,state, zip, phone_number, email_address) VALUES
+    -> INSERT INTO addressbook_details ( firstName, lastName, address, city,state, zip, phone_number, email_address,type) VALUES
+    -> ('Ankita', 'Singh', 'Gomtinagar', 'Kanpur', 'UttarPradesh', '226010', '05566667','surabh@gmail.com','friends');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INSERT INTO addressbook_details ( firstName, lastName, address, city,state, zip,' at line 2
+mysql> INSERT INTO addressbook_details ( firstName, lastName, address, city,state, zip, phone_number, email_address,type) VALUES 
+    ->  ('Ankita', 'Singh', 'Gomtinagar', 'Kanpur', 'UttarPradesh', '226010', '05566667', 'surabh@gmail.com','friends');
+Query OK, 1 row affected (0.06 sec)
+
