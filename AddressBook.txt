@@ -1,4 +1,4 @@
-mysql>  INSERT INTO addressbook_details ( firstName, lastName, address, city, st
+<mysql>  INSERT INTO addressbook_details ( firstName, lastName, address, city, st
 ate, zip, phone_number, email_address) VALUES
     -> ('Saurabh', 'Singh', 'Gomtinagar', 'Lucknow', 'UttarPradesh', '226010', '05566667', 'surabh@gmail.com'),
     -> ('Saurabh', 'Singh', 'Gomtinagar', 'Lucknow', 'UttarPradesh', '226010', '05566667', 'surabh@gmail.com'),
