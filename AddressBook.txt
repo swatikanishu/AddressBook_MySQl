@@ -1,12 +1,28 @@
-mysql>  CREATE DATABASE Addressbook_Service;
-Query OK, 1 row affected (0.07 sec)
+mysql> CREATE TABLE addressbook_details
+    -> (
+    ->
+    -> firstName varchar(70) NOT NULL,
+    -> lastName varchar(50) NOT NULL,
+    -> address varchar(100),
+    -> city varchar(20),
+    -> state varchar(50),
+    -> zip varchar(10),
+    -> phone_number varchar(15),
+    -> email_address varchar(50)
+    -> );
+Query OK, 0 rows affected (0.10 sec)
 
-mysql> use Addressbook_Service;
-Database changed
-mysql> SELECT DATABASE();
-+---------------------+
-| DATABASE()          |
-+---------------------+
-| Addressbook_Service |
-+---------------------+
-1 row in set (0.00 sec)
+mysql>  Describe addressbook_details;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| firstName     | varchar(70)  | NO   |     | NULL    |       |
+| lastName      | varchar(50)  | NO   |     | NULL    |       |
+| address       | varchar(100) | YES  |     | NULL    |       |
+| city          | varchar(20)  | YES  |     | NULL    |       |
+| state         | varchar(50)  | YES  |     | NULL    |       |
+| zip           | varchar(10)  | YES  |     | NULL    |       |
+| phone_number  | varchar(15)  | YES  |     | NULL    |       |
+| email_address | varchar(50)  | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
