@@ -1,0 +1,17 @@
+mysql> SELECT * from addressbook_details where city = 'Lucknow';
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+
+| firstName | lastName | address    | city    | state        | zip    | phone_number | email_address    |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com |
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * from addressbook_details where state = 'UttarPradesh';
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+
+| firstName | lastName | address    | city    | state        | zip    | phone_number | email_address    |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com |
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+
+2 rows in set (0.00 sec)
