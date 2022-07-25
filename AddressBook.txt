@@ -1,12 +1,8 @@
-<mysql>  CREATE DATABASE Addressbook_Service;
-Query OK, 1 row affected (0.07 sec)
-
-mysql> use Addressbook_Service;
-Database changed
-mysql> SELECT DATABASE();
-+---------------------+
-| DATABASE()          |
-+---------------------+
-| Addressbook_Service |
-+---------------------+
-1 row in set (0.00 sec)
+mysql>  select type,count(1) from addressbook_details group by type;
++---------+----------+
+| type    | count(1) |
++---------+----------+
+| family  |        2 |
+| friends |        2 |
++---------+----------+
+2 rows in set (0.00 sec)
