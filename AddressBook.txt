@@ -1,28 +1,20 @@
-mysql> CREATE TABLE addressbook_details
-    -> (
+mysql>  INSERT INTO addressbook_details ( firstName, lastName, address, city, st
+ate, zip, phone_number, email_address) VALUES
+    -> ('Saurabh', 'Singh', 'Gomtinagar', 'Lucknow', 'UttarPradesh', '226010', '05566667', 'surabh@gmail.com'),
+    -> ('Saurabh', 'Singh', 'Gomtinagar', 'Lucknow', 'UttarPradesh', '226010', '05566667', 'surabh@gmail.com'),
     ->
-    -> firstName varchar(70) NOT NULL,
-    -> lastName varchar(50) NOT NULL,
-    -> address varchar(100),
-    -> city varchar(20),
-    -> state varchar(50),
-    -> zip varchar(10),
-    -> phone_number varchar(15),
-    -> email_address varchar(50)
-    -> );
-Query OK, 0 rows affected (0.10 sec)
+    -> ('Swatika', 'Singh', 'Gomtinagar', 'Lucknow', 'UttarPradesh', '226010', '05566667', 'surabh@gmail.com');
+Query OK, 3 rows affected (0.07 sec)
+Records: 3  Duplicates: 0  Warnings: 0
 
-mysql>  Describe addressbook_details;
-+---------------+--------------+------+-----+---------+-------+
-| Field         | Type         | Null | Key | Default | Extra |
-+---------------+--------------+------+-----+---------+-------+
-| firstName     | varchar(70)  | NO   |     | NULL    |       |
-| lastName      | varchar(50)  | NO   |     | NULL    |       |
-| address       | varchar(100) | YES  |     | NULL    |       |
-| city          | varchar(20)  | YES  |     | NULL    |       |
-| state         | varchar(50)  | YES  |     | NULL    |       |
-| zip           | varchar(10)  | YES  |     | NULL    |       |
-| phone_number  | varchar(15)  | YES  |     | NULL    |       |
-| email_address | varchar(50)  | YES  |     | NULL    |       |
-+---------------+--------------+------+-----+---------+-------+
-8 rows in set (0.00 sec)
+mysql> SELECT * FROM addressbook_deatils;
+ERROR 1146 (42S02): Table 'Addressbook_Service.addressbook_deatils' doesn't exist
+mysql> SELECT * FROM addressbook_details;
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+
+| firstName | lastName | address    | city    | state        | zip    | phone_number | email_address    |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 05566667     | surabh@gmail.com |
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 05566667     | surabh@gmail.com |
+| Swatika   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 05566667     | surabh@gmail.com |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+
+3 rows in set (0.00 sec)
