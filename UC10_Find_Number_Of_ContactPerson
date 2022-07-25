@@ -1,0 +1,8 @@
+mysql>  select type,count(1) from addressbook_details group by type;
++---------+----------+
+| type    | count(1) |
++---------+----------+
+| family  |        2 |
+| friends |        2 |
++---------+----------+
+2 rows in set (0.00 sec)
