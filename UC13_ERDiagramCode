@@ -1,0 +1,316 @@
+Database changed
+mysql> select * from addressbook_details;
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+| firstName | lastName | address    | city    | state        | zip    | phone_number | email_address    | type    |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com | family  |
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com | family  |
+| Meera     | Singh    | Gomtinagar | Agra    | UttarPradesh | 226010 | 05566667     | surabh@gmail.com | friends |
+| Ankita    | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 226010 | 05566667     | surabh@gmail.com | friends |
+| Santhosh  | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 226010 | 05566667     | surabh@gmail.com | friends |
+| Santhosh  | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 226010 | 05566667     | surabh@gmail.com | family  |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> create table type (type_id int auto_increment,type_name varchar(50) primary key);
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> create table type (type_id int auto_incement primary key ,type_name varchar(50) primary key);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'auto_incement primary key ,type_name varchar(50) primary key)' at line 1
+mysql> create table type (type_id int  primary key ,type_name varchar(50) primary key);
+ERROR 1068 (42000): Multiple primary key defined
+mysql> create table type (type_id int ,type_name varchar(50) primary key);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> insert into type(type_id,type_name) values
+    -> (1,'family'),
+    -> (2,'freinds');
+Query OK, 2 rows affected (0.07 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from type;
++---------+-----------+
+| type_id | type_name |
++---------+-----------+
+|       1 | family    |
+|       2 | freinds   |
++---------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> create table address(address_id int,area varchar 100
+    -> create table address(address_id int,area varchar 100
+    -> create table address(address_id int,area varchar(100),city varchar(100
+    -> create table address(address_id int,area varchar(100),city varchar(100) ,state varchar(100) ,zip int primary key)
+    -> create table address(address_id int,area varchar(100),city varchar(100) ,state varchar(100) ,zip int primary key);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '100
+create table address(address_id int,area varchar 100
+create table address(ad' at line 1
+mysql> create table address(address_id int,area varchar(100),city varchar(100) ,state varchar(100) ,zip int primary key
+    -> 
+    -> create table address(address_id int,area varchar(100),city varchar(100) ,state varchar(100) ,zip int primary key;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'create table address(address_id int,area varchar(100),city varchar(100) ,state v' at line 3
+mysql> create table address(address_id int,area varchar(100),city varchar(100) ,state varchar(100) ,zip int primary key);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> insert into address(address_id,area,city,state,zip)values
+    -> create table address(address_id int,area varchar(100),city varchar(100) ,state varchar(100) ,zip int primary key);;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'create table address(address_id int,area varchar(100),city varchar(100) ,state v' at line 2
+ERROR: 
+No query specified
+
+mysql> update addressbook_details set zip=333456 where city='Agra';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressbook_details set zip=743459 where city='Kanpur';
+Query OK, 3 rows affected (0.07 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> insert into address(address_id,area,city,state,zip)values
+    -> (1,'Gomtinagar','Lucknow','UttarPradesh',226010),
+    -> (1,'Gomtinagar','Agra','UttarPradesh',333456),
+    -> (1,'Gomtinagar','Kanpur','UttarPradesh',743459);
+Query OK, 3 rows affected (0.07 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> describe type;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| type_id   | int         | YES  |     | NULL    |       |
+| type_name | varchar(50) | NO   | PRI | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> describe address;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| address_id | int          | YES  |     | NULL    |       |
+| area       | varchar(100) | YES  |     | NULL    |       |
+| city       | varchar(100) | YES  |     | NULL    |       |
+| state      | varchar(100) | YES  |     | NULL    |       |
+| zip        | int          | NO   | PRI | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> describe addressbook_details;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| firstName     | varchar(70)  | NO   |     | NULL    |       |
+| lastName      | varchar(50)  | NO   |     | NULL    |       |
+| address       | varchar(100) | YES  |     | NULL    |       |
+| city          | varchar(20)  | YES  |     | NULL    |       |
+| state         | varchar(50)  | YES  |     | NULL    |       |
+| zip           | varchar(10)  | YES  |     | NULL    |       |
+| phone_number  | varchar(15)  | YES  |     | NULL    |       |
+| email_address | varchar(50)  | YES  |     | NULL    |       |
+| type          | varchar(50)  | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+9 rows in set (0.01 sec)
+
+mysql> select * from addressbook_details;
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+| firstName | lastName | address    | city    | state        | zip    | phone_number | email_address    | type    |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com | family  |
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com | family  |
+| Meera     | Singh    | Gomtinagar | Agra    | UttarPradesh | 333456 | 05566667     | surabh@gmail.com | friends |
+| Ankita    | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 743459 | 05566667     | surabh@gmail.com | friends |
+| Santhosh  | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 743459 | 05566667     | surabh@gmail.com | friends |
+| Santhosh  | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 743459 | 05566667     | surabh@gmail.com | family  |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> delete from addressbook_details where firstName='Saurabh';
+Query OK, 2 rows affected (0.07 sec)
+
+mysql> insert into addressbook_details(firstName,lastName,Address,city,state,zip,phone_number,email_address,type)values
+    -> ('Saurabh','Singh','Gomtinagar','Lucknow','UttarPradesh',226010,67777789,'surabh@gmail.com','family'); |
+Query OK, 1 row affected (0.06 sec)
+
+    -> select * from addressbook_details;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '| 
+select * from addressbook_details' at line 1
+mysql>   select * from addressbook_details;
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+| firstName | lastName | address    | city    | state        | zip    | phone_number | email_address    | type    |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+| Meera     | Singh    | Gomtinagar | Agra    | UttarPradesh | 333456 | 05566667     | surabh@gmail.com | friends |
+| Ankita    | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 743459 | 05566667     | surabh@gmail.com | friends |
+| Santhosh  | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 743459 | 05566667     | surabh@gmail.com | friends |
+| Santhosh  | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 743459 | 05566667     | surabh@gmail.com | family  |
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 67777789     | surabh@gmail.com | family  |
++-----------+----------+------------+---------+--------------+--------+--------------+------------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> update addressbook_details set email_address='meera@gmail.com' where firstName='Meera';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressbook_details set email_address='ankita@gmail.com' where firstName='Ankita';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressbook_details set email_address='santhoshfam@gmail.com' where firstName='Santhosh' and type='family';
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressbook_details set email_address='santhoshfar@gmail.com' where firstName='Santhosh' and type='friends';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from addressbook_details;
++-----------+----------+------------+---------+--------------+--------+--------------+-----------------------+---------+
+| firstName | lastName | address    | city    | state        | zip    | phone_number | email_address         | type    |
++-----------+----------+------------+---------+--------------+--------+--------------+-----------------------+---------+
+| Meera     | Singh    | Gomtinagar | Agra    | UttarPradesh | 333456 | 05566667     | meera@gmail.com       | friends |
+| Ankita    | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 743459 | 05566667     | ankita@gmail.com      | friends |
+| Santhosh  | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 743459 | 05566667     | santhoshfar@gmail.com | friends |
+| Santhosh  | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 743459 | 05566667     | santhoshfam@gmail.com | family  |
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 67777789     | surabh@gmail.com      | family  |
++-----------+----------+------------+---------+--------------+--------+--------------+-----------------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> describe addressbook_details;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| firstName     | varchar(70)  | NO   |     | NULL    |       |
+| lastName      | varchar(50)  | NO   |     | NULL    |       |
+| address       | varchar(100) | YES  |     | NULL    |       |
+| city          | varchar(20)  | YES  |     | NULL    |       |
+| state         | varchar(50)  | YES  |     | NULL    |       |
+| zip           | varchar(10)  | YES  |     | NULL    |       |
+| phone_number  | varchar(15)  | YES  |     | NULL    |       |
+| email_address | varchar(50)  | YES  |     | NULL    |       |
+| type          | varchar(50)  | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> alter table addressbook_details add primary key(zip);
+ERROR 1062 (23000): Duplicate entry '743459' for key 'addressbook_details.PRIMARY'
+mysql> alter table addressbook_details add primary key(email_adddress);
+ERROR 1072 (42000): Key column 'email_adddress' doesn't exist in table
+mysql> alter table addressbook_details add primary key(email_address);
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe addressbook_details;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| firstName     | varchar(70)  | NO   |     | NULL    |       |
+| lastName      | varchar(50)  | NO   |     | NULL    |       |
+| address       | varchar(100) | YES  |     | NULL    |       |
+| city          | varchar(20)  | YES  |     | NULL    |       |
+| state         | varchar(50)  | YES  |     | NULL    |       |
+| zip           | varchar(10)  | YES  |     | NULL    |       |
+| phone_number  | varchar(15)  | YES  |     | NULL    |       |
+| email_address | varchar(50)  | NO   | PRI | NULL    |       |
+| type          | varchar(50)  | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+9 rows in set (0.01 sec)
+
+mysql> alter table addressbook_details add foreign key(zip) references address(zip);
+ERROR 3780 (HY000): Referencing column 'zip' and referenced column 'zip' in foreign key constraint 'addressbook_details_ibfk_1' are incompatible.
+mysql> describe address;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| address_id | int          | YES  |     | NULL    |       |
+| area       | varchar(100) | YES  |     | NULL    |       |
+| city       | varchar(100) | YES  |     | NULL    |       |
+| state      | varchar(100) | YES  |     | NULL    |       |
+| zip        | int          | NO   | PRI | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> alter table address modify zip varchar(10);
+Query OK, 3 rows affected (0.13 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> describe address;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| address_id | int          | YES  |     | NULL    |       |
+| area       | varchar(100) | YES  |     | NULL    |       |
+| city       | varchar(100) | YES  |     | NULL    |       |
+| state      | varchar(100) | YES  |     | NULL    |       |
+| zip        | varchar(10)  | NO   | PRI | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> alter table addressbook_details add foreign key(zip) references address(zip);
+Query OK, 5 rows affected (0.14 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> alter table addressbook_details add foreign key(type) references type(type_name);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`Addressbook_Service`.`#sql-3b9_25`, CONSTRAINT `addressbook_details_ibfk_2` FOREIGN KEY (`type`) REFERENCES `type` (`type_name`))
+mysql> describe type;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| type_id   | int         | YES  |     | NULL    |       |
+| type_name | varchar(50) | NO   | PRI | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> describe address;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| address_id | int          | YES  |     | NULL    |       |
+| area       | varchar(100) | YES  |     | NULL    |       |
+| city       | varchar(100) | YES  |     | NULL    |       |
+| state      | varchar(100) | YES  |     | NULL    |       |
+| zip        | varchar(10)  | NO   | PRI | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> describe addressbook_details;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| firstName     | varchar(70)  | NO   |     | NULL    |       |
+| lastName      | varchar(50)  | NO   |     | NULL    |       |
+| address       | varchar(100) | YES  |     | NULL    |       |
+| city          | varchar(20)  | YES  |     | NULL    |       |
+| state         | varchar(50)  | YES  |     | NULL    |       |
+| zip           | varchar(10)  | YES  | MUL | NULL    |       |
+| phone_number  | varchar(15)  | YES  |     | NULL    |       |
+| email_address | varchar(50)  | NO   | PRI | NULL    |       |
+| type          | varchar(50)  | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+9 rows in set (0.01 sec)
+
+mysql> select * from addressbook_details;
++-----------+----------+------------+---------+--------------+--------+--------------+-----------------------+---------+
+| firstName | lastName | address    | city    | state        | zip    | phone_number | email_address         | type    |
++-----------+----------+------------+---------+--------------+--------+--------------+-----------------------+---------+
+| Ankita    | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 743459 | 05566667     | ankita@gmail.com      | friends |
+| Meera     | Singh    | Gomtinagar | Agra    | UttarPradesh | 333456 | 05566667     | meera@gmail.com       | friends |
+| Santhosh  | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 743459 | 05566667     | santhoshfam@gmail.com | family  |
+| Santhosh  | Singh    | Gomtinagar | Kanpur  | UttarPradesh | 743459 | 05566667     | santhoshfar@gmail.com | friends |
+| Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 67777789     | surabh@gmail.com      | family  |
++-----------+----------+------------+---------+--------------+--------+--------------+-----------------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from type;
++---------+-----------+
+| type_id | type_name |
++---------+-----------+
+|       1 | family    |
+|       2 | freinds   |
++---------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> update type set type_name='friends' where type_name='freinds';
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> alter table addressbook_details add foreign key(type) references type(type_name);
+Query OK, 5 rows affected (0.08 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
