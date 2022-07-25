@@ -1,4 +1,4 @@
-\mysql> update addressbook_details set address = vishalkhand where firstName = 'swatika';
+<mysql> update addressbook_details set address = vishalkhand where firstName = 'swatika';
  ERROR 1054 (42S22): Unknown column 'vishalkhand' in 'field list'
  mysql> update addressbook_details set address = Vishalkhand where firstName = 'swatika';
  ERROR 1054 (42S22): Unknown column 'Vishalkhand' in 'field list'
