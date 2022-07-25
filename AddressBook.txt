@@ -1,4 +1,4 @@
-mysql>  CREATE DATABASE Addressbook_Service;
+<mysql>  CREATE DATABASE Addressbook_Service;
 Query OK, 1 row affected (0.07 sec)
 
 mysql> use Addressbook_Service;
