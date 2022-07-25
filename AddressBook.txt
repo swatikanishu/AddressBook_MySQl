@@ -1,4 +1,4 @@
-mysql> CREATE TABLE addressbook_details
+<mysql> CREATE TABLE addressbook_details
     -> (
     ->
     -> firstName varchar(70) NOT NULL,
