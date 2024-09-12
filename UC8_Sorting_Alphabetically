@@ -7,4 +7,3 @@ mysql> select * from addressbook_details order by firstName;
 | Saurabh   | Singh    | Gomtinagar | Lucknow | UttarPradesh | 226010 | 945667777    | surabh@gmail.com |
 +-----------+----------+------------+---------+--------------+--------+--------------+------------------+
 3 rows in set (0.00 sec)
-

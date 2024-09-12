@@ -1,0 +1,25 @@
+mysql> select city,count(1) from addressbook_details group by city;
++---------+----------+
+| city    | count(1) |
++---------+----------+
+| Lucknow |        2 |
++---------+----------+
+1 row in set (0.00 sec)
+
+mysql> select state,count(1) from addressbook_details group by state;
++--------------+----------+
+| state        | count(1) |
++--------------+----------+
+| UttarPradesh |        2 |
++--------------+----------+
+1 row in set (0.00 sec)
+
+mysql> select city ,state,count(1) from addressbook_details group by city, state
+;
++---------+--------------+----------+
+| city    | state        | count(1) |
++---------+--------------+----------+
+| Lucknow | UttarPradesh |        2 |
++---------+--------------+----------+
+1 row in set (0.00 sec)
+
